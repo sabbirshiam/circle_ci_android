@@ -10,7 +10,7 @@ executors:
 
 jobs:
   build:
-    executor: docker/android
+    executor: my-executor
         
     steps:
       - checkout
