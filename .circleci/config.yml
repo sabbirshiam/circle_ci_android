@@ -8,7 +8,7 @@ executors:
     docker:
       - image: circleci/android:api-29
     #resource class cannot use in free plan.
-    resource_class: medium+
+    #resource_class: medium+
 
 jobs:
   build:
