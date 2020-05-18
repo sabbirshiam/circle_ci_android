@@ -46,8 +46,8 @@ jobs:
       - *android_dependencies
       - *save_gradle_cache
       - run:
-          name: Run gradle build
-          command: ./gradlew build
+          name: Run gradle lint
+          command: ./gradlew lint
 
   build_and_test:
     <<: *android_config
