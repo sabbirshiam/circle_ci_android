@@ -50,6 +50,9 @@ jobs:
           command: ./gradlew lint
       - persist_to_workspace:
           root: *workspace
+          paths:
+            - ~/.gradle
+            - ~/.m2
 
   build_and_test:
     <<: *android_config
