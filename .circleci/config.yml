@@ -5,7 +5,7 @@ references:
   # Workspaces represent the spaces we work on & are useful for sharing data between jobs.
   # Create a workspace with the ~/code directory.
   workspace: &workspace
-               ~/code
+    ~/code
   # Docker Image Configs
   android_config: &android_config
     working_directory: *workspace
@@ -15,10 +15,10 @@ references:
           - image: circleci/android:api-29
         #resource class cannot use in free plan.
         #resource_class: medium+
-     environment:
-       TERM: dumb
-       _JAVA_OPTIONS: "-Xmx3200m -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
-       GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx3200m"'
+    environment:
+      TERM: dumb
+      _JAVA_OPTIONS: "-Xmx3200m -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+      GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx3200m"'
   # Cache - a cache mechanism for our dependencies
   gradle_key: &gradle_key
     jars-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
