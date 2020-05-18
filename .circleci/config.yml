@@ -49,11 +49,13 @@ jobs:
           name: Run gradle lint
           command: ./gradlew lint
       - persist_to_workspace:
-          *workspace
+          root: *workspace
 
   build_and_test:
     <<: *android_config
     steps:
+      - attach_workspace:
+          - at: *workspace
       - run:
           name: Run assembleDebug
           command: ./gradlew assembleDebug
