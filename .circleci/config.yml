@@ -54,12 +54,11 @@ jobs:
   build_and_test:
     <<: *android_config
     steps:
-      - attach_workspace:
-          - at: *workspace
+      - persist_to_workspace:
+          root: *workspace
       - run:
           name: Run assembleDebug
           command: ./gradlew assembleDebug
-
 
 workflows:
   version: 2.1
