@@ -48,8 +48,8 @@ jobs:
       - run:
           name: Run gradle lint
           command: ./gradlew lint
-      - persist_to_workspace:
-          root: workspace
+    persist_to_workspace:
+      root: workspace
 
   build_and_test:
     <<: *android_config
