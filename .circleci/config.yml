@@ -18,3 +18,9 @@ jobs:
       - checkout
       - run:
           command: ./gradlew build
+
+  build_and_test:
+    require:
+      build
+    steps:
+      - ./gradlew assembleDebug
