@@ -20,6 +20,7 @@ jobs:
           command: ./gradlew build
 
   build_and_test:
+    executor: my-executor
     require:
       build
     steps:
