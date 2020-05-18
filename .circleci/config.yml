@@ -9,12 +9,10 @@ references:
   # Docker Image Configs
   android_config: &android_config
     working_directory: *workspace
-    executors:
-      my-executor:
-        docker:
-          - image: circleci/android:api-29
-        #resource class cannot use in free plan.
-        #resource_class: medium+
+    docker:
+      - image: circleci/android:api-29
+      #resource class cannot use in free plan.
+      #resource_class: medium+
     environment:
       TERM: dumb
       _JAVA_OPTIONS: "-Xmx3200m -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
