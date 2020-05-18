@@ -52,10 +52,6 @@ jobs:
   build_and_test:
     <<: *android_config
     steps:
-      - checkout
-      - *restore_gradle_cache
-      - *android_dependencies
-      - *save_gradle_cache
       - run:
           name: Run assembleDebug
           command: ./gradlew assembleDebug
