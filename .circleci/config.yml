@@ -56,6 +56,9 @@ jobs:
   build_and_test:
     <<: *android_config
     steps:
+      - attach_workspace:
+         # Must be absolute path or relative path from working_directory
+        at: ./
       - run:
           name: Run assembleDebug
           command: ./gradlew assembleDebug
