@@ -57,7 +57,7 @@ jobs:
     <<: *android_config
     steps:
       - attach_workspace:
-        at: ./
+          at: ./
       - run:
           name: Run assembleDebug
           command: ./gradlew assembleDebug
