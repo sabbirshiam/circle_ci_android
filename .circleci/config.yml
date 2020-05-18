@@ -49,7 +49,7 @@ jobs:
           name: Run gradle lint
           command: ./gradlew lint
       - persist_to_workspace:
-          root: *workspace
+          root: ~/code
           paths:
             - ~/.gradle
             - ~/.m2
