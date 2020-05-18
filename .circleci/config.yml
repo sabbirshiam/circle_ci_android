@@ -13,7 +13,6 @@ executors:
 jobs:
   build:
     executor: my-executor
-        
     steps:
       - checkout
       - run:
@@ -22,10 +21,11 @@ jobs:
   build_and_test:
     executor: my-executor
     steps:
-      - ./gradlew assembleDebug
+      - run:
+          command: ./gradlew assembleDebug
 
 workflows:
-  version: 2
+  version: 2.1
   build-test-and-deploy:
     jobs:
       - build
