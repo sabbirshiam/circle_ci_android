@@ -48,6 +48,8 @@ jobs:
       - run:
           name: Run gradle lint
           command: ./gradlew lint
+      - persist_to_workspace:
+          *workspace
 
   build_and_test:
     <<: *android_config
@@ -55,6 +57,7 @@ jobs:
       - run:
           name: Run assembleDebug
           command: ./gradlew assembleDebug
+
 
 workflows:
   version: 2.1
