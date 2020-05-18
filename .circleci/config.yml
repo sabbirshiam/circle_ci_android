@@ -26,8 +26,8 @@ references:
   save_gradle_cache: &save_gradle_cache
     save_cache:
       paths:
-        - ~/.gradle
-        - ~/.m2
+        - ~/code/.gradle
+        - ~/code/.m2
       key: *gradle_key
   android_dependencies: &android_dependencies
     run:
@@ -49,16 +49,11 @@ jobs:
           name: Run gradle lint
           command: ./gradlew lint
       - persist_to_workspace:
-          root: ~/code
-          paths:
-            - ~/.gradle
-            - ~/.m2
+          root: workspace
 
   build_and_test:
     <<: *android_config
     steps:
-      - persist_to_workspace:
-          root: *workspace
       - run:
           name: Run assembleDebug
           command: ./gradlew assembleDebug
