@@ -61,6 +61,14 @@ jobs:
       - run:
           name: Run assembleDebug
           command: ./gradlew assembleDebug
+  release_demo_test:
+    <<: *android_config
+    steps:
+      - attach_workspace:
+          at: ./
+      - run:
+          name: Run assembleRelease
+          command: ./gradlew assembleRelease
 
 workflows:
   version: 2.1
@@ -70,3 +78,7 @@ workflows:
       - build_and_test:
           requires:
             - build
+      - release_demo_test:
+          requires:
+            - build_and_test
+
