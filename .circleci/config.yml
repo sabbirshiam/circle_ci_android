@@ -28,6 +28,8 @@ references:
       paths:
         - ~/code/.gradle
         - ~/code/.m2
+        - ~/.gradle/caches
+        - ~/.gradle/wrapper
       key: *gradle_key
   android_dependencies: &android_dependencies
     run:
