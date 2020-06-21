@@ -16,7 +16,7 @@ references:
     environment:
       TERM: dumb
       _JAVA_OPTIONS: "-Xmx3200m -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
-      GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx3200m"'
+      GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2 -Dkotlin.incremental=false'
   # Cache - a cache mechanism for our dependencies
   gradle_key: &gradle_key
     v2-jars-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
@@ -60,6 +60,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
+      - *restore_gradle_cache
+      - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
       - run:
           name: Run assembleDebug
           command: ./gradlew assembleDebug
@@ -68,6 +72,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
+      - *restore_gradle_cache
+      - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
       - run:
           name: Run assembleRelease
           command: ./gradlew assembleRelease
