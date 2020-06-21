@@ -80,5 +80,5 @@ workflows:
             - build
       - release_demo_test:
           requires:
-            - build_and_test
+            - build
 
